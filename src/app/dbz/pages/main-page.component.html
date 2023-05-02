@@ -1,0 +1,15 @@
+<h1>DBZ Personajes</h1>
+<hr>
+
+<div class="row">
+    <div class="col">
+      <!-- Aca accedemos al componente list, con los corchetes [] accedemos al decorador @Input que esta ubicado en list.component
+      entonces [characterList] le estaria pasanado el array characters ubicado en main-page.component y este array se
+      situaria en characterList ubicado en list.component. -->
+      <dbz-list (emitCharacterId)="onDeleteCharacter($event)" [characterList]="characters"></dbz-list>
+    </div>
+
+    <div class="col">
+      <dbz-add-character (onNewCharacter)="onNewCharacter($event)"></dbz-add-character>
+    </div>
+</div>
