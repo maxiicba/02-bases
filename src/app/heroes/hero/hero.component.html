@@ -1,0 +1,47 @@
+<h1>{{name}}</h1>
+
+<dl>
+  <td>Nombre:</td>
+  <dd>
+    {{ name }}
+  </dd>
+
+  <td>Edad:</td>
+  <dd>
+    {{ age }}
+  </dd>
+
+  <td>Método:</td>
+  <dd>
+    {{ getHeroDescription() }}
+  </dd>
+
+  <td>Capitalizado:</td>
+  <dd>
+    {{ capitalizedName }}
+  </dd>
+</dl>
+
+<!--  aca se puede acceder directamente a las variables en el ts del componente, sin utilizar
+{{}}  en este caso si la variable nombre no es igual !== a spiderman va a mostrar el boton y si es igual a spider man
+ lo va a ocultar -->
+<button
+*ngIf="name !== 'Sipederman'"
+
+ (click)="changeHero()"
+  type="button" class="btn btn-primary mx-2">
+  Cambiar nombre
+</button>
+
+<button
+*ngIf="age !== 25"
+(click)="changeAge()"
+ type="button" class="btn btn-primary">
+ Cambiar edad
+</button>
+
+<button
+(click)="reset()"
+ type="button" class="btn btn-primary mx-2">
+ Reset
+</button>

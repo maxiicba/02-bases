@@ -1,0 +1,36 @@
+<h4>Listado:</h4>
+      <!-- Desde la visual de este componente accedemos a el arreglo characterList y luego lo desestructuramos en character.name y character.power.
+      Luego cuando consumimos este componente dentro de otro lo podemos hacer de manera dinamica -->
+      <!-- con let i = index accedemos al index del ngfor -->
+      <ul class="list-group">
+        <li *ngFor="let character of characterList; let i = index;
+        let isFirst = first;
+        let isLast = last;
+        let isEven = even;
+        let isOdd = odd;
+
+        "
+         class="list-group-item d-flex justify-content-between align-items-center"
+         [ngClass]="{
+          'list-group-item-dark': isLast,
+           'list-group-item-primary': isEven
+          }">
+          <div class="div">
+            <span class="text-primary"> {{i + 1}}. </span>
+
+            <span>{{character.name}} | </span>
+
+            <strong>Power: </strong>
+
+            <span>{{character.power}} | </span>
+          </div>
+
+         <button (click)="onDeleteCharacter(character.id)" class="btn btn-danger">X</button>
+
+         <!-- con  [ngClass] podemos agregar una clase si se cumple una condicion (de manera condicional)
+        en este caso si es el ultimo 'list-group-item-dark': isLast le coloca la
+        clase list-group-item-dark, con un coma se puede agregar otra condicion
+      con otra clase-->
+        </li>
+
+</ul>
